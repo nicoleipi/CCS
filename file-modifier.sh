@@ -29,12 +29,21 @@ do
     cp ${f} ${out_dir}/6-31G2df2pd/${name}.com
     cp ${f} ${out_dir}/6-311++G2df2pd/${name}.com
 
-    #modifies the command line
-    sed -i '/B3LYP/ c\# B97D3\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gd/${name}.com
-    sed -i '/B3LYP/ c\# B97D3\/6-31G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gdp/${name}.com
-    sed -i '/B3LYP/ c\# B97D3\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31+Gdp/${name}.com
-    sed -i '/B3LYP/ c\# B97D3\/6-311G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311Gd/${name}.com
-    sed -i '/B3LYP/ c\# B97D3\/6-311++G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++Gd/${name}.com
-    sed -i '/B3LYP/ c\# B97D3\/6-311G(2df,2pd) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31G2df2pd/${name}.com
-    sed -i '/B3LYP/ c\# B97D3\/6-311++G(2df,2pd) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++G2df2pd/${name}.com
+    #modifies the command line (for B97D3)
+    #sed -i '/B3LYP/ c\# B97D3\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gd/${name}.com
+    #sed -i '/B3LYP/ c\# B97D3\/6-31G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gdp/${name}.com
+    #sed -i '/B3LYP/ c\# B97D3\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31+Gdp/${name}.com
+    #sed -i '/B3LYP/ c\# B97D3\/6-311G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311Gd/${name}.com
+    #sed -i '/B3LYP/ c\# B97D3\/6-311++G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++Gd/${name}.com
+    #sed -i '/B3LYP/ c\# B97D3\/6-311G(2df,2pd) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31G2df2pd/${name}.com
+    #sed -i '/B3LYP/ c\# B97D3\/6-311++G(2df,2pd) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++G2df2pd/${name}.com
+
+    #modifies the command line (for B3LYP-D3(BJ))
+    sed -i '/B3LYP/ c\# B3LYP\/6-31+G(d,p) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gd/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-31G(d,p) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gdp/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-31+G(d,p) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31+Gdp/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-311G(d,p) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311Gd/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-311++G(d,p) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++Gd/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-311G(2df,2pd) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31G2df2pd/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-311++G(2df,2pd) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++G2df2pd/${name}.com
 done
