@@ -4,7 +4,7 @@
 in_dir=${1}
 
 #sets the path the script is initiated
-exec_path=/aerosol/users/nicole/ccs-files
+exec_path=/aerosol/users/nicole/CCS
 
 #makes a list of all the .com files in the directory
 find ${in_dir} -name "*.com" > list.txt
