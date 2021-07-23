@@ -29,19 +29,19 @@ do
     cp ${f} ${out_dir}/6-31G2df2pd/${name}.com
     cp ${f} ${out_dir}/6-311++G2df2pd/${name}.com
 
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-31Gd/${name}.com
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-31Gdp/${name}.com
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-31+Gdp/${name}.com
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-311Gd/${name}.com
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-311++Gd/${name}.com
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-31G2df2pd/${name}.com
-    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' touch ${out_dir}/6-311++G2df2pd/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-31Gd/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-31Gdp/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-31+Gdp/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-311Gd/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-311++Gd/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-31G2df2pd/${name}.com
+    sed -i '/B3LYP/ c\B3LYP-D3(BJ)' ${out_dir}/6-311++G2df2pd/${name}.com
 
-    sed -i '/6-31+G(d,p)/ c\6-31G(d)' touch ${out_dir}/6-31Gd/${name}.com
-    sed -i '/6-31+G(d,p)/ c\6-31G(d,p)' touch ${out_dir}/6-31Gdp/${name}.com
-    sed -i '/6-31+G(d,p)/ c\6-31+G(d,p)' touch ${out_dir}/6-31+Gdp/${name}.com
-    sed -i '/6-31+G(d,p)/ c\6-311G(d,p)' touch ${out_dir}/6-311Gd/${name}.com
-    sed -i '/6-31+G(d,p)/ c\6-311++G(d,p)' touch ${out_dir}/6-311++Gd/${name}.com
-    sed -i '/6-31+G(d,p)/ c\6-311G(2df,2pd)' touch ${out_dir}/6-31G2df2pd/${name}.com
-    sed -i '/6-31+G(d,p)/ c\6-311++G(2df,2pd)' touch ${out_dir}/6-311++G2df2pd/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-31G(d)' ${out_dir}/6-31Gd/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-31G(d,p)' ${out_dir}/6-31Gdp/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-31+G(d,p)' ${out_dir}/6-31+Gdp/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-311G(d,p)' ${out_dir}/6-311Gd/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-311++G(d,p)' ${out_dir}/6-311++Gd/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-311G(2df,2pd)' ${out_dir}/6-31G2df2pd/${name}.com
+    sed -i '/6-31+G(d,p)/ c\6-311++G(2df,2pd)' ${out_dir}/6-311++G2df2pd/${name}.com
 done
