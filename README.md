@@ -1,4 +1,4 @@
-# DFT Geometry Optimization with Gaussian
+# DFT Geometry Optimization and Frequency Calculations with Gaussian
 
 file-modifier.sh
 --------
