@@ -4,6 +4,12 @@ in_dir=${1}
 
 find ${in_dir} -name "*.com" > list.txt
 
+execpath=/aerosol/users/nicole/ccs-files
+
 while read -r aline; do
-  ./gau-sub.sh "${aline}"
+  filepath=`dirname ${aline}`
+  filename=`basename ${aline}`
+
+  cd ${filepath}
+  echo ${execpath}/gau-sub.sh "${filename}"
 done <list.txt
