@@ -20,7 +20,7 @@ mkdir -p ${out_dir}/6-311++G2df2pd
 for f in ${in_dir}/*;
 do
     #creates the output files
-    name=`basename ${f} .in`
+    name=`basename ${f} .com`
     cp ${f} ${out_dir}/6-31Gd/${name}.com
     cp ${f} ${out_dir}/6-31Gdp/${name}.com
     cp ${f} ${out_dir}/6-31+Gdp/${name}.com
