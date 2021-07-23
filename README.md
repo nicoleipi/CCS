@@ -25,7 +25,7 @@ file-modifier.sh
             +- ...
 * `file-modifier.sh` is currently set to generate input files with the B97D3 DFT method. To change the DFT method the input files will be modified to, replace B97D3 with your DFT method of choice
 * The output folder will be created in the directory that `file-modifier.sh` is initiated
-* Disclaimer: Nicole knows that the script is a bit tedious and that there's bably cleaner scripting methods of achieving the same results, but this solution works (for now)
+* Disclaimer: Nicole knows that the script is a bit tedious and that there's probably cleaner scripting methods of achieving the same results, but this solution works (for now)
 
 sub-jobs.sh
 --------
