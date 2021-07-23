@@ -1,15 +1,23 @@
 #!/bin/bash
 
+#input directory variable
 in_dir=${1}
 
+#sets the path the script is initiated
+exec_path=/aerosol/users/nicole/ccs-files
+
+#makes a list of all the .com files in the directory
 find ${in_dir} -name "*.com" > list.txt
 
-execpath=/aerosol/users/nicole/ccs-files
-
 while read -r aline; do
-  filepath=`dirname ${aline}`
-  filename=`basename ${aline}`
+    #gets file path of each file in the list
+    file_path=`dirname ${aline}`
+    #gets the name of each file in the list
+    file_name=`basename ${aline}`
 
-  cd ${execpath}/${filepath}
-  ${execpath}/gau-sub.sh "${filename}"
+    #enters the directory the file is in
+    cd ${exec_path}/${file_path}
+
+    #runs the job submission script
+    ${exec_path}/gau-sub.sh "${filename}"
 done <list.txt

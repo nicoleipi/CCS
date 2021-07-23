@@ -29,6 +29,7 @@ do
     cp ${f} ${out_dir}/6-31G2df2pd/${name}.com
     cp ${f} ${out_dir}/6-311++G2df2pd/${name}.com
 
+    #modifies the command line
     sed -i '/B3LYP/ c\# wB97XD\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gd/${name}.com
     sed -i '/B3LYP/ c\# wB97XD\/6-31G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31Gdp/${name}.com
     sed -i '/B3LYP/ c\# wB97XD\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31+Gdp/${name}.com
