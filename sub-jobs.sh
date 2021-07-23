@@ -10,6 +10,6 @@ while read -r aline; do
   filepath=`dirname ${aline}`
   filename=`basename ${aline}`
 
-  cd ${filepath}
+  cd ${execpath}/${filepath}
   echo ${execpath}/gau-sub.sh "${filename}"
 done <list.txt
