@@ -11,5 +11,5 @@ while read -r aline; do
   filename=`basename ${aline}`
 
   cd ${execpath}/${filepath}
-  echo ${execpath}/gau-sub.sh "${filename}"
+  ${execpath}/gau-sub.sh "${filename}"
 done <list.txt
