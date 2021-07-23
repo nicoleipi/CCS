@@ -19,5 +19,5 @@ while read -r aline; do
     cd ${exec_path}/${file_path}
 
     #runs the job submission script
-    ${exec_path}/gau-sub.sh "${filename}"
+    ${exec_path}/gau-sub.sh "${file_name}"
 done <list.txt
