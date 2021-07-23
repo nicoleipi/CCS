@@ -2,7 +2,7 @@
 %nproc=4
 %chk=conf-150.chk
 
-B3LYP-D3(BJ)/6-311G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)
+# B3LYP-D3(BJ)/6-311G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)
 
  Candidate Structure: Conf:150 OPT and FREQ calc in gas phase
 
