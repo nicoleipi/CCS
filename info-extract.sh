@@ -22,7 +22,7 @@ echo ${var_g}
 aline=`cat ${input_file} | grep 'HF='`
 search="HF="
 prefix=${aline%%${search}*}
-let "prefix=prefix+3"
-echo ${#prefix}
-rest_of_line=${aline:${prefix}}
+num=${#prefix}
+let "num=num+4"
+rest_of_line=${aline:${num}}
 echo ${rest_of_line}
