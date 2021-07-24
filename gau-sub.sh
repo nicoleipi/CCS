@@ -77,7 +77,7 @@ echo "elapsed time = \$ELAPSED seconds"
 DATE=\$(date "+%Y-%m-%d-%H%M%S")
 echo ">>> Job finished at \$DATE"
 
-input_file=$JOBNAME.log
+input_file=${JOBNAME}.log
 output_file=/aerosol/users/nicole/CCS/output_r1.csv
 
 basis_sets=("6-31G(d)" "6-31G(d,p)" "6-31+G(d,p)" "6-311G(d,p)" "6-311++G(d,p)" "6-311G(2df,2pd)" "6-311++G(2df,2pd)")
