@@ -18,3 +18,8 @@ echo ${var_h}
 aline=`cat ${input_file} | grep "Sum of electronic and thermal Free Energies"`
 var_g=`echo ${aline} | cut -d " " -f 8`
 echo ${var_g}
+
+aline=`cat ${input_file} | grep 'HF='`
+search="HF="
+prefix=${aline%%${search}*}
+echo ${#prefix}
