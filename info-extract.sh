@@ -28,4 +28,4 @@ rest_of_line=${aline:${num}}
 
 search='\'
 prefix=${rest_of_line%%${search}*}
-echo prefix
+echo ${prefix}
