@@ -14,23 +14,23 @@ do
         basis_set=${basis}
     fi
 done
-echo ${basis_set}
+#echo ${basis_set}
 
 aline=`cat ${input_file} | grep "Sum of electronic and zero-point Energies"`
 var_ezpe=`echo ${aline} | cut -d " " -f 7`
-echo ${var_ezpe}
+#echo ${var_ezpe}
 
 aline=`cat ${input_file} | grep "Sum of electronic and thermal Energies"`
 var_u=`echo ${aline} | cut -d " " -f 7`
-echo ${var_u}
+#echo ${var_u}
 
 aline=`cat ${input_file} | grep "Sum of electronic and thermal Enthalpies"`
 var_h=`echo ${aline} | cut -d " " -f 7`
-echo ${var_h}
+#echo ${var_h}
 
 aline=`cat ${input_file} | grep "Sum of electronic and thermal Free Energies"`
 var_g=`echo ${aline} | cut -d " " -f 8`
-echo ${var_g}
+#echo ${var_g}
 
 aline=`cat ${input_file} | grep 'HF='`
 search="HF="
@@ -40,4 +40,6 @@ let "num=num+3"
 rest_of_line=${aline:${num}}
 search='\\'
 var_e=${rest_of_line%%${search}*}
-echo ${var_e}
+#echo ${var_e}
+
+echo "${basis_set}, ${var_ezpe}, ${var_u}, ${var_h}, ${var_g}, ${var_e}" >> ${output_file}
