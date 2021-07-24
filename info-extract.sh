@@ -25,7 +25,6 @@ prefix=${aline%%${search}*}
 num=${#prefix}
 let "num=num+3"
 rest_of_line=${aline:${num}}
-
-search='\'
-prefix=${rest_of_line%%${search}*}
-echo ${prefix}
+search='\\'
+var_e=${rest_of_line%%${search}*}
+echo ${var_e}
