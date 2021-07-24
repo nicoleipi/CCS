@@ -3,6 +3,19 @@
 input_file=$1
 output_file=$2
 
+basis_sets=("6-31G(d)" "6-31G(d,p)" "6-31+G(d,p)" "6-311G(d,p)" "6-311++G(d,p)" "6-311G(2df,2pd)" "6-311++G(2df,2pd)")
+
+for i in ${!basis_sets[@]};
+do 
+    num=0
+    basis=${basis_sets[$i]}
+    num=`grep ${basis} ${input_file} | wc -l`
+    if [ ${num} -gt 0 ]; then
+        basis_set=${basis}
+    fi
+done
+echo ${basis_set}
+
 aline=`cat ${input_file} | grep "Sum of electronic and zero-point Energies"`
 var_ezpe=`echo ${aline} | cut -d " " -f 7`
 echo ${var_ezpe}
