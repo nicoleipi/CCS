@@ -2,11 +2,12 @@
 %nproc=4
 %chk=conf-118.chk
 
-# B3LYP/6-31+G(d,p) EmpiricalDispersion=GD3BJ opt=calcfc freq=noraman nosymm integral(ultrafinegrid)
+# B3LYP/6-31+G(d,p) EmpiricalDispersion=GD3BJ guess=read geom=checkpoint opt=readfc freq=noraman nosymm integral(ultrafinegrid) 
 
  Candidate Structure: Conf:118 OPT and FREQ calc in gas phase
 
-0 1
+0 1 
+
  O  -1.09191399  -1.49774376   1.89456649
  C  -1.13290120  -0.84888513   0.84816488
  N   0.00240440  -0.36345414   0.30113104
