@@ -14,7 +14,7 @@ mkdir -p ${out_dir}/6-31Gdp
 mkdir -p ${out_dir}/6-31+Gdp
 mkdir -p ${out_dir}/6-311Gdp
 mkdir -p ${out_dir}/6-311++Gdp
-mkdir -p ${out_dir}/6-31G2df2pd
+mkdir -p ${out_dir}/6-311G2df2pd
 mkdir -p ${out_dir}/6-311++G2df2pd
 
 for f in ${in_dir}/*;
@@ -26,7 +26,7 @@ do
     cp ${f} ${out_dir}/6-31+Gdp/${name}.com
     cp ${f} ${out_dir}/6-311Gdp/${name}.com
     cp ${f} ${out_dir}/6-311++Gdp/${name}.com
-    cp ${f} ${out_dir}/6-31G2df2pd/${name}.com
+    cp ${f} ${out_dir}/6-311G2df2pd/${name}.com
     cp ${f} ${out_dir}/6-311++G2df2pd/${name}.com
 
     #modifies the command line (for B97D3)
@@ -44,6 +44,6 @@ do
     sed -i '/B3LYP/ c\# B3LYP\/6-31+G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31+Gdp/${name}.com
     sed -i '/B3LYP/ c\# B3LYP\/6-311G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311Gdp/${name}.com
     sed -i '/B3LYP/ c\# B3LYP\/6-311++G(d,p) opt=calcfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++Gdp/${name}.com
-    sed -i '/B3LYP/ c\# B3LYP\/6-311G(2df,2pd) guess=read geom=checkpoint opt=readfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-31G2df2pd/${name}.com
+    sed -i '/B3LYP/ c\# B3LYP\/6-311G(2df,2pd) guess=read geom=checkpoint opt=readfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311G2df2pd/${name}.com
     sed -i '/B3LYP/ c\# B3LYP\/6-311++G(2df,2pd) guess=read geom=checkpoint opt=readfc freq=noraman nosymm integral(ultrafinegrid)' ${out_dir}/6-311++G2df2pd/${name}.com
 done
