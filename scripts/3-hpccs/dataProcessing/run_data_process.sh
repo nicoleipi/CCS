@@ -1,8 +1,9 @@
 #!/bin/bash
-data_path=/cygdrive/c/Users/pinic/Documents/REHS21/CCS2/data
-output_path=/cygdrive/c/Users/pinic/Documents/REHS21/CCS2/output
+data_path=/cygdrive/c/Users/pinic/Documents/REHS21/CCS/data
+output_path=/cygdrive/c/Users/pinic/Documents/REHS21/CCS/data
 model=$1
-output_name=$2
+dft=$2
+output_name=$3
 ccs_search_output=""
 
 function find_value {
@@ -30,10 +31,11 @@ function find_value {
 }
 
 
-cd $data_path/$model/basis_set
+cd $data_path/$model/$dft/basis_set
 cat *.csv > /tmp/output_all.csv
 cat /tmp/output_all.csv | cut -d "," -f1  | sort |uniq > /tmp/list_ccs_value
 
+path=$data_path/$model/$dft/basis_set/${output_name}
 while read -r ccs;
 do
     
@@ -42,27 +44,26 @@ do
 
         echo "basis_set,CCS" > ${output_path}/${output_name}_${ccs}.csv
 
-        find_value $data_path/$model/basis_set/${output_name}_6-31+Gdp.csv ${ccs}
-        echo 4,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
-
-        find_value $data_path/$model/basis_set/${output_name}_6-31Gd.csv ${ccs}
+        find_value $path_6-31Gd.csv ${ccs}
         echo 0,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
 
-        find_value $data_path/$model/basis_set/${output_name}_6-31Gdp.csv ${ccs}
+        find_value $path_6-31Gdp.csv ${ccs}
         echo 1,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
 
-        find_value $data_path/$model/basis_set/${output_name}_6-311++G2df2pd.csv ${ccs}
-        echo 6,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
-
-        find_value $data_path/$model/basis_set/${output_name}_6-311++Gdp.csv ${ccs}
-        echo 5,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
-
-        find_value $data_path/$model/basis_set/${output_name}_6-311G2df2pd.csv ${ccs}
-        echo 3,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
-
-        find_value $data_path/$model/basis_set/${output_name}_6-311Gdp.csv ${ccs}
+        find_value $path_6-311Gdp.csv ${ccs}
         echo 2,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
 
+        find_value $path_6-311G2df2pd.csv ${ccs}
+        echo 3,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
+
+        find_value $path_6-31+Gdp.csv ${ccs}
+        echo 4,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
+
+        find_value $path_6-311++Gdp.csv ${ccs}
+        echo 5,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
+
+        find_value $path_6-311++G2df2pd.csv ${ccs}
+        echo 6,${ccs_search_output} >> ${output_path}/${output_name}_${ccs}.csv
     fi
 
 done < /tmp/list_ccs_value
