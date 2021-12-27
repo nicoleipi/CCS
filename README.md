@@ -2,14 +2,14 @@
 
 Repository Structure
 --------
-+ `data`
-   ├─ model#
-   │  ├─ DFT method
-   │  │  ├─ basis_set
-   │  │  │  ├─ Data in seperated by basis set, with one data-containing .csv file per basis set
-   │  │  ├─ isomer
-   │  │  │  ├─Data in seperated by isomer, with one data-containing .csv file per isomer
-   │  │  │  ├─File structure: Basis (basis set), EZPE (energy + zero-point correction), U (internal energy), H (enthalpy), G (Gibbs free energy), E (electronic energy), boltz_G (Boltzmann average calculated using G),boltz_E (Boltzmann average calculated using E)
+`data`  
+├─ model#  
+│  ├─ DFT method  
+│  │  ├─ basis_set  
+│  │  │  ├─ Data in seperated by basis set, with one data-containing .csv file per basis set  
+│  │  ├─ isomer  
+│  │  │  ├─Data in seperated by isomer, with one data-containing .csv file per isomer  
+│  │  │  ├─File structure: Basis (basis set), EZPE (energy + zero-point correction), U (internal energy), H (enthalpy), G (Gibbs free energy), E (electronic energy), boltz_G (Boltzmann average calculated using G),boltz_E (Boltzmann average calculated using E)
 * `diagrams`
     - model#
         - 3D models of the isomers generated using VMD
