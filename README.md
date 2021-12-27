@@ -1,12 +1,11 @@
 # Boltzmann-Averaged CCS Calculation Workflow
 
-[Description]
+Description
 --------
 
 Repository Structure
 --------
-<pre><code>
-<b>📂 data  </b>
+<pre><code><b>📂 data  </b>
 └──📁 model#  
     └──📁 DFT method  
         ├──📁 basis_set  
@@ -63,5 +62,4 @@ Repository Structure
 ├──📁 3-hpccs (step 3)  
 │   └──📁 calculates the CCS values
 └──📁 4-boltz-weight (step 4)  
-    └──📁 finds the Boltzmann averaged CCS value of each model  
-</pre></code>
+    └──📁 finds the Boltzmann averaged CCS value of each model  </pre></code>
