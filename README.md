@@ -2,34 +2,33 @@
 
 Repository Structure
 --------
-* data
++ `data`
+   ├─ model#
+   │  ├─ DFT method
+   │  │  ├─ basis_set
+   │  │  │  ├─ Data in seperated by basis set, with one data-containing .csv file per basis set
+   │  │  ├─ isomer
+   │  │  │  ├─Data in seperated by isomer, with one data-containing .csv file per isomer
+   │  │  │  ├─File structure: Basis (basis set), EZPE (energy + zero-point correction), U (internal energy), H (enthalpy), G (Gibbs free energy), E (electronic energy), boltz_G (Boltzmann average calculated using G),boltz_E (Boltzmann average calculated using E)
+* `diagrams`
     - model#
-        - DFT method
-            * basis_set
-                - Data in seperated by basis set, with one data-containing .csv file per basis set
-            * isomer
-                - Data in seperated by isomer, with one data-containing .csv file per isomer
-                - File structure:
-                    - Basis (basis set), EZPE (energy + zero-point correction), U (internal energy), H (enthalpy), G (Gibbs free energy), E (electronic energy), boltz_G (Boltzmann average calculated using G),boltz_E (Boltzmann average calculated using E)
-* diagrams
-    - model #
         - 3D models of the isomers generated using VMD
-* inputs
-    - model #
+* `inputs`
+    - model#
         - DFT method
             - basis set
                 - gaussian (Gaussian .com input files)
                 - pqr (HPCCS .pqr input files)
         - xyz
             - .xyz files for each isomer
-* outputs
-    - model #
+* `outputs`
+    - model#
         - DFT method
             - basis set
                 - gaussian (Gaussian .log output files containing the energy and frequency calculations)
                 - hpccs (HPCCS .out output files containing the CCS calculation)
-* plots
-    - model #
+* `plots`
+    - model#
         - DFT method
             - boltzmann (x-axis: basis set, y-axis: relative population)
             - compare_rela_pop (x-axis: isomer, y-axis: relative population)
@@ -39,7 +38,7 @@ Repository Structure
             - final plots used in my REHS 2021 presentation
         - full
             - all relative populations graphed together
-* scripts (ReadME files for each scripts are in their respective folders)
+* `scripts` (ReadME files for each scripts are in their respective folders)
     - 1-gaussian (step 1)
         - file-modifier.sh: generate Gaussian input files
         - gauSub: submit Gaussian jobs
