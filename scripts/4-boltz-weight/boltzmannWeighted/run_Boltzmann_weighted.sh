@@ -1,6 +1,6 @@
 #!/bin/bash
 
-main_data_path=/cygdrive/c/Users/pinic/Documents/REHS21/CCS2/data
+main_data_path=/cygdrive/c/Users/pinic/Documents/REHS21/CCS/data
 model_path=$1
 boltzmann_file_name=$2
 ccs_file_name=$3
@@ -87,14 +87,6 @@ function calculte_boltzmann() {
     done
 
 }
-
-
-#testing how to calculate using AWK
-#a=0.3565149356212e+02
-#b=3.4444e-03
-#awk -v a1="$a" -v b1="$b" 'BEGIN { print a1 * b1 }'
-#awk -v a1="$a" -v b1="$b" 'BEGIN { printf "%.6e\n", a1 * b1 }'
-
 
 # get a list of subfolder
 for filename in ${ccs_path}/*.csv; do
