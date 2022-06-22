@@ -1,20 +1,33 @@
 #!/usr/bin/python3
 
+# 2022-06-10
+# Nicole I. Pi
+# Provided a directory, convert all .xyz files into Gaussian (.com) input files
+# Modified 2022-06-21: code reorganized into individual functions to improve modularity + help function added
+
 import os
 import sys
 import glob
+import argparse
 from pathlib import Path
 
-#print ('Number of arguments:', len(sys.argv), 'arguments.')
-#print ('Argument List :', str(sys.argv))
+parser = argparse.ArgumentParser(description="Provided a directory, convert all .xyz files into Gaussian (.com) input files")
+parser.add_argument("-i", "--input", type=str, required=True, help="Directory containing .xyz files")
+parser.add_argument("-c", "--charge", type=int, required=True, help="Charge of the molecule")
+parser.add_argument("-s", "--spin", type=int, required=True, help="Spin of the molecule")
+parser.add_argument("-o", "--output", type=str, required=True, help="Directory that will contain Gaussian .com files")
 
-input_data_path = sys.argv[1]
+args = parser.parse.args
+
+#define variables 
+input_data_path = args.input
+charge = args.charge
+spin = args.spin
+output_data_path = args.output
+
 print ("input_data_path : ", input_data_path)
-
-molecule_num = sys.argv[2]
-print ("molecule_num : ", molecule_num);
-
-output_data_path = sys.argv[3]
+print ("charge : ", charge);
+print ("spin : ", spin);
 print ("output_data_path : ", output_data_path)
 
 raw_xyzfiles = []
@@ -71,14 +84,13 @@ for file_id in range(len(raw_xyzfiles)):
                 header_lines.append("Candidate Structure: Conf:" + str(cur_isomer) + " OPT and FREQ calc in gas phase")
                 header_lines.append("")
                 
-                if str(molecule_num) == "1":
-                    cur_charge = 0
-                else:
-                    cur_charge = 1
+                cur_charge = charge
 
-                header_lines.append(str(cur_charge) + " 1")
+                cur_spin = spin
 
-                output_file_path = output_data_path + "/molecule" + str(molecule_num)
+                header_lines.append(str(cur_charge) + " " + str(cur_spin))
+
+                output_file_path = output_data_path + "/molecule" + str(charge)
 
                 if not os.path.isdir(output_file_path):
                     os.mkdir(output_file_path)
