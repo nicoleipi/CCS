@@ -17,7 +17,7 @@ parser.add_argument("-c", "--charge", type=int, required=True, help="Charge of t
 parser.add_argument("-s", "--spin", type=int, required=True, help="Spin of the molecule")
 parser.add_argument("-o", "--output", type=str, required=True, help="Directory that will contain Gaussian .com files")
 
-args = parser.parse.args
+args = parser.parse_args()
 
 #define variables 
 input_data_path = args.input
@@ -40,7 +40,6 @@ method = ["B3LYP"]
 basis = ["6-311G(2df,2pd)", "6-311++G(2df,2pd)", "6-311G(d,p)", "6-311++G(d,p)", "6-31G(d)", "6-31+G(d,p)", "6-31G(d,p)"]
 basis_name = ["6-311G2df2pd", "6-311++G2df2pd", "6-311Gdp", "6-311++Gdp", "6-31Gd", "6-31+Gdp", "6-31Gdp"]
 basis_header = [2, 2, 2, 2, 1, 2, 2]
-charge = [0, 1]
 dispersion = ["EmpiricalDispersion=GD3BJ", ""]
 
 for file_id in range(len(raw_xyzfiles)):
@@ -71,7 +70,7 @@ for file_id in range(len(raw_xyzfiles)):
                 header_lines = []
                 header_lines.append("%mem=2gb")
                 header_lines.append("%nproc=4")
-                header_lines.append("chk=" + cur_method + "_" + cur_basis + "_" + str(cur_isomer) + ".chk")
+                header_lines.append("chk=" + cur_method + "_" + cur_basis_name + "_" + str(cur_isomer) + ".chk")
                 header_lines.append("")
 
                 if basis_header[j] == 2 :
@@ -90,10 +89,10 @@ for file_id in range(len(raw_xyzfiles)):
 
                 header_lines.append(str(cur_charge) + " " + str(cur_spin))
 
-                output_file_path = output_data_path + "/molecule" + str(charge)
+                output_file_path = output_data_path
 
                 if not os.path.isdir(output_file_path):
-                    os.mkdir(output_file_path)
+                    os.makedirs(output_file_path)
 
                 if k == 0:
                     output_file_name = "D3BJ" + "_" + cur_basis_name + "_" + str(cur_isomer) +".com"
