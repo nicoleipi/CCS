@@ -17,11 +17,28 @@ parser.add_argument("-o", "--output", type=str, required=True, help="Directory t
 args = parser.parse_args()
 
 # variables 
-input_data_path = args.input
-initial_basis="6-31Gd"
-basis_sets="6-31Gdp 6-31+Gdp 6-311Gdp 6-311++Gdp 6-311G2df2pd 6-311++G2df2pd"
+script_path = os.getcwd()
+initial_basis = ["6-31Gd"]
+basis_sets = ["6-31Gdp", "6-31+Gdp", "6-311Gdp", "6-311++Gdp", "6-311G2df2pd", "6-311++G2df2pd"]
 
-directory = r'args.input'
+directory = r'%s' % args.input
 
 for f in os.listdir(directory):
-    Path('%s').stem % f
+
+    filename = os.path.splitext(f)[0]
+    variables = filename.split("_")
+    method = variables[0]
+    basis = variables [1]
+    isomer = variables [2]
+    print (method)
+    print (basis)
+    print (isomer
+            
+    chk_name = filename.chk
+    
+    job_id = gauSub.sh ${f}
+    job_id = os.path.splitext(job_id)[3]
+
+    for basis in range(len(basis_sets)):    
+        cd input_data_path
+        script_path/gauSub.sh -c directory/chk_name -d job_id 
