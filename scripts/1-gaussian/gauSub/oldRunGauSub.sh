@@ -1,4 +1,15 @@
-function submit() {
+#!/bin/bash
+
+#
+# directory structure:
+#  model/method/basis/molecule_foo.com
+#  model/method/basis/molecule_bar.com
+#
+full_path=/aerosol/users/nicole/CCS
+initial_basis="6-31Gd"
+basis_sets="6-31Gdp 6-31+Gdp 6-311Gdp 6-311++Gdp 6-311G2df2pd 6-311++G2df2pd"
+
+function sub_model_method() {
     model=$1
     method=$2
 
@@ -22,9 +33,31 @@ function submit() {
         for basis in ${basis_sets}
         do
             cd ${full_path}/${model}/${method}/${basis}
-            ${full_path}/gauSub.sh -c ${initial_path}/${chk_name} -d ${job_id} ${job}
+            ${full_path}/gau-sub.sh -c ${initial_path}/${chk_name} -d ${job_id} ${job}
         done
     done
 }
 
-submit /aerosol/users/nicole/CCS/gaussian_in/molecule1
+sub_model_method model1 B3LYP
+sub_model_method model4 B3LYP
+sub_model_method model1 D3BJ
+
+
+
+
+
+    # 1. loop through each isomer
+    # 2. loop through each method
+    # 3. submit 6-31Gd job
+    # 4. duplicate checkpoint files for each dependent submissions
+    # 5. submit all other jobs
+
+    ## old script        
+    chk_name = filename.chk
+    
+    job_id = gauSub.sh ${f}
+    job_id = os.path.splitext(job_id)[3]
+
+    for basis in range(len(basis_sets)):    
+        
+        script_path/gauSub.sh -c directory/chk_name -d job_id 

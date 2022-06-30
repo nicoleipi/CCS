@@ -4,6 +4,7 @@
 # Nicole I. Pi
 # Provided a directory, submit Gaussian jobs using the input files
 
+from mimetypes import init
 import os
 import sys
 import glob
@@ -18,27 +19,18 @@ args = parser.parse_args()
 
 # variables 
 script_path = os.getcwd()
-initial_basis = ["6-31Gd"]
+method = ["B3LYP", "D3BJ"]
+initial_basis = "6-31Gd"
 basis_sets = ["6-31Gdp", "6-31+Gdp", "6-311Gdp", "6-311++Gdp", "6-311G2df2pd", "6-311++G2df2pd"]
 
-directory = r'%s' % args.input
+for i in range(len(method)):
+    a_method = method[i]
+    initial_file_list = glob.glob('a_method+"_"+initial_basis+"*.com"')
+        
+    for j in range(len(initial_file_list)):
+        a_file = initial_file_list[j]
+        a_filename = os.path.splitext(a_file)[0]
+        var = a_filename.split("_")
+        isomer = var [2]
+        print(isomer)
 
-for f in os.listdir(directory):
-
-    filename = os.path.splitext(f)[0]
-    variables = filename.split("_")
-    method = variables[0]
-    basis = variables [1]
-    isomer = variables [2]
-    print (method)
-    print (basis)
-    print (isomer
-            
-    chk_name = filename.chk
-    
-    job_id = gauSub.sh ${f}
-    job_id = os.path.splitext(job_id)[3]
-
-    for basis in range(len(basis_sets)):    
-        cd input_data_path
-        script_path/gauSub.sh -c directory/chk_name -d job_id 
