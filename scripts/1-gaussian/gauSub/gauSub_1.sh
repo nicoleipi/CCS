@@ -34,12 +34,8 @@ do
             DEPENDENCY="--dependency=afterok:$2"
             shift
             ;;
-        -i|--initial_checkpoint-file)
+        -c|--copy_checkpoint-file)
             CPF_source=$2
-            shift
-            ;; 
-        -c|--copy_of_checkpoint-file)
-            final_CPF=$2
             shift
             ;;        
 	-h|--help)
@@ -53,7 +49,7 @@ do
     shift
 done
 
-INPUT=${JOBNAME}
+INPUT=${JOBNAME}.com
 if [ ! -f ${INPUT} ]
 then
     echo "ERROR: need input file (with extension .com)"
@@ -82,8 +78,9 @@ export GAUSS_SCR_DIR=\$SLURM_SCRATCH_DIR
 DATE=\$(date "+%Y-%m-%d-%H%M%S")
 echo ">>> Starting job $JOBNAME on \$(hostname) at \$DATE"
 
+CPF=.
 if [ -f "$CPF_source" ]; then
-  cp $CPF_source $final_CPF
+  cp $CPF_source ${CPF}
 fi
 
 # run Gaussian
